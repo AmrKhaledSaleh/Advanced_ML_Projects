@@ -10,6 +10,8 @@ from tensorflow.keras.models import Sequential
 class COD:
     def __init__(self, model_type='cnn'):
         # Define the base model with pre-trained weights
+        base_model = ResNet50(include_top=False, weights='imagenet', input_shape=(224, 224, 3))
+        base_model.trainable = False
 
         # Define the complete model
         model = Sequential([
